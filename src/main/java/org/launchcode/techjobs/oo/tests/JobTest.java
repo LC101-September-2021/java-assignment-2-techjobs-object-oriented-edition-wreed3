@@ -27,7 +27,7 @@ public class JobTest {
     @Test
     public void testJobConstructorSetsAllFields(){
         testJob1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertTrue(new Job() instanceof Job);
+        assertTrue(testJob1 instanceof Job);
         assertEquals("Product tester", testJob1.getName());
         assertTrue(testJob1.getEmployer() instanceof Employer);
         assertEquals("ACME", testJob1.getEmployer().toString());
@@ -60,4 +60,6 @@ public class JobTest {
         assertFalse("\n" + "Id: " + testJob1.getId() + "\nName: " + testJob1.getName() + "\nEmployer: " + testJob1.getEmployer() + "\nLocation: " + testJob1.getLocation() + "\nPosition Type: " + testJob1.getPositionType() + "\nCore Competency: " + "Data not available" + "\n", testJob1.getCoreCompetency()== null);
 
     }
+
+
 }
