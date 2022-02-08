@@ -19,22 +19,26 @@ public class JobTest {
 
     @Test
     public void testSettingJobId(){
-        assertEquals(true, Objects.equals(testJob2.getId(), testJob1.getId() + 1));
-        System.out.println(testJob2.getId());
-        System.out.println(testJob1.getId());
+        assertEquals(testJob2.getId(), testJob1.getId() + 1);
+//        System.out.println(testJob2.getId());
+//        System.out.println(testJob1.getId());
     }
     @Test
     public void testJobConstructorSetsAllFields(){
-        testJob1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Employer emp = new Employer("ACME");
+        Location loc = new Location("Desert");
+        PositionType pos =  new PositionType("Quality control");
+        CoreCompetency coreCom = new CoreCompetency("Persistence");
+        testJob1 = new Job("Product tester", emp, loc, pos, coreCom);
+
         assertTrue(testJob1 instanceof Job);
-        assertEquals("Product tester", testJob1.getName());
-        assertTrue(testJob1.getEmployer() instanceof Employer);
+        assertTrue(emp instanceof Employer);
         assertEquals("ACME", testJob1.getEmployer().toString());
-        assertTrue(testJob1.getLocation() instanceof Location);
+        assertTrue(loc instanceof Location);
         assertEquals("Desert", testJob1.getLocation().toString());
-        assertTrue(testJob1.getPositionType() instanceof PositionType);
+        assertTrue(pos instanceof PositionType);
         assertEquals("Quality control", testJob1.getPositionType().toString());
-        assertTrue(testJob1.getCoreCompetency() instanceof CoreCompetency);
+        assertTrue(coreCom instanceof CoreCompetency);
         assertEquals("Persistence", testJob1.getCoreCompetency().toString());
     }
 
