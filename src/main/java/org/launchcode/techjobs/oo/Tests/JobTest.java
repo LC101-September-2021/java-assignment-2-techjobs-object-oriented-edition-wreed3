@@ -1,9 +1,8 @@
-package org.launchcode.techjobs.oo.tests;
+package org.launchcode.techjobs.oo.Tests;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.launchcode.techjobs.oo.*;
-import org.w3c.dom.ls.LSOutput;
 
 import java.util.Objects;
 
