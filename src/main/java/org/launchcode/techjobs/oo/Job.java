@@ -35,6 +35,25 @@ public class Job {
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
+
+    public String toString() {
+            if(this.getName() == "" && this.getEmployer() == null && this.getLocation() == null && this.getPositionType() == null && this.getCoreCompetency() == null ){
+                return "OOPS! This job does not seem to exist.";
+            }else if(Objects.equals(this.getName(), "")){
+                return("\n" + "Id: " + this.getId() + "\nName: " + "Data not available" + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n");
+            }else if(this.getEmployer() == null){
+                return("\n" + "Id: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + "Data not available" + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n");
+            }else if(this.getLocation() == null){
+                return("\n" + "Id: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + "Data not available" + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n");
+            }else if(this.getPositionType() == null){
+                return("\n" + "Id: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + "Data not available" + "\nCore Competency: " + this.getCoreCompetency() + "\n");
+            }else if(this.getCoreCompetency() == null){
+                return("\n" + "Id: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + "Data not available"  + "\n");
+            }else{
+                return("\n" + "Id: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n");
+            }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
