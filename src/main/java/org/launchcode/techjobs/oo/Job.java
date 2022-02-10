@@ -37,21 +37,34 @@ public class Job {
 
 
     public String toString() {
-            if(this.getName() == "" && this.getEmployer() == null && this.getLocation() == null && this.getPositionType() == null && this.getCoreCompetency() == null ){
+//        String totalString= "";
+        if(this.getName().equals("") && this.getEmployer().toString().equals("") && this.getLocation().toString().equals("") && this.getPositionType().toString().equals("") && this.getCoreCompetency().toString().equals("")){
                 return "OOPS! This job does not seem to exist.";
-            }else if(Objects.equals(this.getName(), "")){
-                return("\n" + "Id: " + this.getId() + "\nName: " + "Data not available" + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n");
-            }else if(this.getEmployer() == null){
-                return("\n" + "Id: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + "Data not available" + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n");
-            }else if(this.getLocation() == null){
-                return("\n" + "Id: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + "Data not available" + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n");
-            }else if(this.getPositionType() == null){
-                return("\n" + "Id: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + "Data not available" + "\nCore Competency: " + this.getCoreCompetency() + "\n");
-            }else if(this.getCoreCompetency() == null){
-                return("\n" + "Id: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + "Data not available"  + "\n");
-            }else{
-                return("\n" + "Id: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n");
             }
+        if(this.getName().equals("")){
+                this.setName("Data not available");
+//                return('\n' + "ID: " + this.getId() + "\nName: " + this.getName()  + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + '\n');
+            }
+        if(this.getEmployer().toString().equals("")){
+                this.setEmployer(new Employer("Data not available"));
+//                return('\n' + "ID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + '\n');
+            }
+        if(this.getLocation().toString().equals("")){
+                this.setLocation(new Location("Data not available"));
+//                return('\n' + "ID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + '\n');
+            }
+        if(this.getPositionType().toString().equals("")){
+                this.setPositionType(new PositionType("Data not available"));
+//                return('\n' + "ID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + '\n');
+            }
+        if(this.getCoreCompetency().toString().equals("")){
+                this.setCoreCompetency(new CoreCompetency("Data not available"));
+                return('\n' + "ID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + '\n');
+        }else{
+            return('\n' + "ID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + '\n');
+
+        }
+
     }
 
     @Override
@@ -113,5 +126,33 @@ public class Job {
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+    }
+
+    public static String getJobString(Job job){
+        if(job.getName().equals("") && job.getEmployer().toString().equals("") && job.getLocation().toString().equals("") && job.getPositionType().toString().equals("") && job.getCoreCompetency().toString().equals("")){
+            return "OOPS! This job does not seem to exist.";
+        }
+        if(job.getName().equals("")){
+            job.setName("Data not available");
+//            return('\n' + "ID: " + job.getId() + "\nName: " + job.getName()  + "\nEmployer: " + job.getEmployer() + "\nLocation: " + job.getLocation() + "\nPosition Type: " + job.getPositionType() + "\nCore Competency: " + job.getCoreCompetency() + '\n');
+        }
+        if(job.getEmployer().toString().equals("")){
+            job.setEmployer(new Employer("Data not available"));
+//            return('\n' + "ID: " + job.getId() + "\nName: " + job.getName() + "\nEmployer: " + job.getEmployer() + "\nLocation: " + job.getLocation() + "\nPosition Type: " + job.getPositionType() + "\nCore Competency: " + job.getCoreCompetency() + '\n');
+        }
+        if(job.getLocation().toString().equals("")){
+            job.setLocation(new Location("Data not available"));
+//            return('\n' + "ID: " + job.getId() + "\nName: " + job.getName() + "\nEmployer: " + job.getEmployer() + "\nLocation: " + job.getLocation() + "\nPosition Type: " + job.getPositionType() + "\nCore Competency: " + job.getCoreCompetency() + '\n');
+        }
+        if(job.getPositionType().toString().equals("")){
+            job.setPositionType(new PositionType("Data not available"));
+//            return('\n' + "ID: " + job.getId() + "\nName: " + job.getName() + "\nEmployer: " + job.getEmployer() + "\nLocation: " + job.getLocation() + "\nPosition Type: " + job.getPositionType() + "\nCore Competency: " + job.getCoreCompetency() + '\n');
+        }
+        if(job.getCoreCompetency().toString().equals("")){
+            job.setCoreCompetency(new CoreCompetency("Data not available"));
+            return('\n' + "ID: " + job.getId() + "\nName: " + job.getName() + "\nEmployer: " + job.getEmployer() + "\nLocation: " + job.getLocation() + "\nPosition Type: " + job.getPositionType() + "\nCore Competency: " + job.getCoreCompetency() + '\n');
+        }else{
+            return('\n' + "ID: " + job.getId() + "\nName: " + job.getName() + "\nEmployer: " + job.getEmployer() + "\nLocation: " + job.getLocation() + "\nPosition Type: " + job.getPositionType() + "\nCore Competency: " + job.getCoreCompetency() + '\n');
+        }
     }
 }
